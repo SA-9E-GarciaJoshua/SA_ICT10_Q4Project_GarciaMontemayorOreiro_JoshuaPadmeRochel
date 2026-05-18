@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10 EMERALD - Attendance Tracker</title>
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- PyScript -->
+    <link rel="stylesheet" href="https://pyscript.net/releases/2025.7.3/core.css">
+    <script type="module" src="https://pyscript.net/releases/2025.7.3/core.js"></script>
+
+    <py-config>
+        packages = ["numpy", "matplotlib"]
+    </py-config>
+
+    <style>
+        body {
+            background: linear-gradient(145deg, #fff9ef 0%, #fff2df 100%);
+            font-family: 'Segoe UI', 'Quicksand', system-ui, -apple-system, 'Comic Neue', sans-serif;
+            position: relative;
+            margin: 0;
+            padding: 0;
+        }
+
+        body::before {
+            content: "🐰🐱🐻‍❄️⭐🍜";
+            position: fixed;
+            bottom: 15px;
+            right: 15px;
+            font-size: 70px;
+            opacity: 0.12;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        body::after {
+            content: "✨🌸⚡🐣🍙";
+            position: fixed;
+            top: 70px;
+            left: 10px;
+            font-size: 60px;
+            opacity: 0.1;
+            pointer-events: none;
+            z-index: 0;
+            transform: rotate(-5deg);
+        }
+
+        /* Navbar chiikawa style */
+        .navbar {
+            background: #fdebb3 !important;
+            border-bottom: 4px solid #f7bc45;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.05);
+            position: relative;
+            z-index: 10;
+            padding: 0.8rem 2rem;
+        }
+
+        .navbar .logo {
+            background: #fff2df;
+            border-radius: 50px;
+            padding: 5px 20px;
+            font-weight: bold;
+            color: #b45f1b;
+            box-shadow: inset 0 -1px 0 #ffe0aa, 0 3px 8px rgba(0,0,0,0.03);
+            font-size: 1.5rem;
+        }
+
+        .nav-links a {
+            color: #a5662a !important;
+            font-weight: 600;
+            background: #fff5ea;
+            border-radius: 30px;
+            padding: 6px 16px;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            background: #ffdead !important;
+            color: #8b4c1a !important;
+            transform: translateY(-2px);
+        }
+
+        /* Hero section */
+        .hero-section {
+            background: #ffe6bf;
+            border-radius: 50px;
+            margin: 25px 30px;
+            padding: 20px 25px;
+            box-shadow: 0 12px 18px rgba(0,0,0,0.05);
+            border: 2px solid #ffd29b;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-section h1 {
+            color: #c16f2e;
+            text-shadow: 2px 2px 0 #ffeecc;
+            font-weight: bold;
+        }
+
+        .hero-section p {
+            color: #9b5e2a;
+        }
+
+        /* Attendance box */
+        .attendance-box {
+            background: #fff7ed;
+            border-radius: 48px;
+            padding: 30px 30px;
+            margin: 20px 30px 40px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            border: 1px solid #ffdead;
+            position: relative;
+            z-index: 2;
+        }
+
+        label {
+            font-weight: 600;
+            color: #b7681a;
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 6px;
+        }
+
+        select, input {
+            background: #fffef7;
+            border: 2px solid #ffd7a5;
+            border-radius: 60px;
+            padding: 10px 18px;
+            font-size: 1rem;
+            width: 100%;
+            max-width: 300px;
+            transition: 0.2s;
+            font-family: inherit;
+        }
+
+        select:focus, input:focus {
+            border-color: #f7a81e;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(247,168,30,0.2);
+        }
+
+        button {
+            background: #f7c56e;
+            border: none;
+            border-radius: 60px;
+            padding: 10px 24px;
+            margin-top: 20px;
+            font-weight: bold;
+            color: #784a17;
+            cursor: pointer;
+            transition: 0.2s;
+            box-shadow: 0 3px 0 #c2812e;
+            font-size: 1rem;
+        }
+
+        button:hover {
+            background: #ffbc4a;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 0 #c2812e;
+        }
+
+        #attendance-output {
+            margin-top: 25px;
+            background: #fff3e0;
+            padding: 15px 20px;
+            border-radius: 40px;
+            border-left: 8px solid #f7bc45;
+        }
+
+        /* matplotlib figure container - make it fit nicely */
+        .matplotlib-figure {
+            background: #fffef5;
+            border-radius: 32px;
+            padding: 10px;
+            margin-top: 20px;
+            border: 1px solid #ffe0b5;
+        }
+
+        /* make output text cozy */
+        #attendance-output p {
+            color: #9b4e1a;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+
+        <div class="logo">
+            10 EMERALD
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="classmates.html">Classmates</a></li>
+            <li><a href="attendance.html" class="active">Attendance Tracker</a></li>
+            <li><a href="index.html">Gallery</a></li>
+        </ul>
+
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero-section">
+        <h1>Attendance Tracker</h1>
+        <p>How much people were absent in which day of the week.</p>
+    </header>
+
+    <!-- ATTENDANCE FORM -->
+    <section class="attendance-box">
+
+        <label for="dayOfTheWeek">
+            Select Day
+        </label>
+
+        <select id="dayOfTheWeek">
+            <option value="Monday">Monday</option>
+            <option value="Tuesday">Tuesday</option>
+            <option value="Wednesday">Wednesday</option>
+            <option value="Thursday">Thursday</option>
+            <option value="Friday">Friday</option>
+        </select>
+
+        <label for="absences">
+            Number of Absences
+        </label>
+
+        <input
+            type="number"
+            id="absences"
+            placeholder="Enter number of absences"
+        >
+
+        <button py-click="displaying">
+            Submit
+        </button>
+
+        <div id="attendance-output"></div>
+
+    </section>
+
+    <!-- Python -->
+    <py-script src="attendance.py"></py-script>
+
+</body>
+</html>

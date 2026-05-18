@@ -1,0 +1,299 @@
+/* =========================
+   RESET
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+/* =========================
+   BODY
+========================= */
+
+body{
+    background:#f4fff4;
+    color:#1b4332;
+    min-height:100vh;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar{
+    width:90%;
+
+    margin:25px auto;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    background:#0f8f3d;
+
+    padding:18px 25px;
+
+    border-radius:12px;
+
+    box-shadow:
+    0 4px 10px rgba(0,0,0,0.15);
+}
+
+.logo{
+    color:white;
+
+    font-size:2rem;
+
+    font-weight:bold;
+}
+
+.nav-links{
+    list-style:none;
+
+    display:flex;
+
+    gap:20px;
+}
+
+.nav-links a{
+    text-decoration:none;
+
+    color:rgba(255,255,255,0.75);
+
+    font-weight:600;
+
+    transition:0.3s;
+}
+
+.nav-links a:hover{
+    color:white;
+}
+
+.active{
+    color:white !important;
+}
+
+/* =========================
+   HERO SECTION
+========================= */
+
+.hero-section{
+    text-align:center;
+
+    padding:30px 20px 40px;
+}
+
+.hero-section h1{
+    font-size:3rem;
+
+    color:#0b5d1e;
+
+    margin-bottom:10px;
+}
+
+.hero-section p{
+    font-size:1.1rem;
+
+    color:#2e7d32;
+}
+
+/* =========================
+   GALLERY
+========================= */
+
+.gallery-container{
+    width:90%;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit, minmax(260px, 1fr));
+
+    gap:30px;
+
+    padding-bottom:60px;
+}
+
+.gallery-card{
+    background:white;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    box-shadow:
+    0 4px 12px rgba(0,0,0,0.15);
+
+    transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.gallery-card:hover{
+    transform:translateY(-6px);
+
+    box-shadow:
+    0 8px 20px rgba(0,0,0,0.2);
+}
+
+.gallery-card img{
+    width:100%;
+
+    height:250px;
+
+    object-fit:cover;
+}
+
+.gallery-card h2{
+    padding:16px 16px 8px;
+
+    color:#1b5e20;
+
+    font-size:1.3rem;
+}
+
+.gallery-card p{
+    padding:0 16px 20px;
+
+    color:#4e4e4e;
+
+    line-height:1.6;
+}
+
+/* =========================
+   FORMS
+========================= */
+
+.form-container,
+.attendance-box{
+    width:90%;
+
+    max-width:500px;
+
+    margin:20px auto 50px auto;
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:16px;
+
+    box-shadow:
+    0 4px 12px rgba(0,0,0,0.15);
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+}
+
+/* =========================
+   LABELS
+========================= */
+
+.form-container label,
+.attendance-box label{
+    font-weight:bold;
+
+    color:#1b4332;
+}
+
+/* =========================
+   INPUTS
+========================= */
+
+input,
+select{
+    width:100%;
+
+    padding:12px;
+
+    border:1px solid #ccc;
+
+    border-radius:10px;
+
+    font-size:1rem;
+
+    outline:none;
+
+    transition:0.3s;
+}
+
+input:focus,
+select:focus{
+    border-color:#0f8f3d;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+button{
+    padding:12px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#0f8f3d;
+
+    color:white;
+
+    font-size:1rem;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+button:hover{
+    background:#0b6e2f;
+}
+
+/* =========================
+   OUTPUT BOXES
+========================= */
+
+#output,
+#attendance-output{
+    margin-top:10px;
+
+    padding:10px;
+
+    background:#e8f5e9;
+
+    border-radius:10px;
+
+    line-height:1.7;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width:768px){
+
+    .navbar{
+        flex-direction:column;
+
+        gap:15px;
+    }
+
+    .nav-links{
+        flex-wrap:wrap;
+
+        justify-content:center;
+    }
+
+    .hero-section h1{
+        font-size:2rem;
+    }
+}

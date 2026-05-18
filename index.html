@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10 EMERALD - Gallery</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* ========== CHIIKAWA VISUAL THEME FOR GALLERY ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #fff9ef 0%, #fff2df 100%);
+            font-family: 'Segoe UI', 'Quicksand', system-ui, -apple-system, 'Comic Neue', sans-serif;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        /* Floating Chiikawa decorative icons */
+        body::before {
+            content: "🐰🐱🐻‍❄️📸✨";
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            font-size: 80px;
+            opacity: 0.12;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        body::after {
+            content: "🌸⚡🍜🎀🐣";
+            position: fixed;
+            top: 80px;
+            left: 10px;
+            font-size: 70px;
+            opacity: 0.1;
+            pointer-events: none;
+            z-index: 0;
+            transform: rotate(-3deg);
+        }
+
+        /* Navbar */
+        .navbar {
+            background: #fdebb3 !important;
+            border-bottom: 4px solid #f7bc45;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.05);
+            position: relative;
+            z-index: 10;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 2rem;
+            flex-wrap: wrap;
+        }
+
+        .navbar .logo {
+            background: #fff2df;
+            border-radius: 50px;
+            padding: 5px 20px;
+            font-weight: bold;
+            color: #b45f1b;
+            box-shadow: inset 0 -1px 0 #ffe0aa, 0 3px 8px rgba(0,0,0,0.03);
+            font-size: 1.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: #a5662a !important;
+            font-weight: 600;
+            background: #fff5ea;
+            border-radius: 30px;
+            padding: 6px 16px;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            background: #ffdead !important;
+            color: #8b4c1a !important;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: #ffe6bf;
+            border-radius: 50px;
+            margin: 25px 30px;
+            padding: 25px 30px;
+            box-shadow: 0 12px 18px rgba(0,0,0,0.05);
+            border: 2px solid #ffd29b;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-section h1 {
+            color: #c16f2e;
+            text-shadow: 2px 2px 0 #ffeecc;
+            font-size: 2rem;
+        }
+
+        .hero-section p {
+            color: #9b5e2a;
+            font-size: 1.05rem;
+            line-height: 1.4;
+        }
+
+        /* Gallery Container */
+        .gallery-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            padding: 20px 30px 50px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Gallery Cards */
+        .gallery-card {
+            background: #fffef5;
+            border-radius: 32px;
+            width: 320px;
+            overflow: hidden;
+            box-shadow: 0 15px 25px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border: 1px solid #ffe0b5;
+        }
+
+        .gallery-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 22px 30px rgba(0,0,0,0.12);
+            border-color: #ffce94;
+        }
+
+        .gallery-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-bottom: 3px solid #f7bc45;
+        }
+
+        .gallery-card h2 {
+            color: #c16f2e;
+            padding: 15px 18px 5px;
+            font-size: 1.4rem;
+        }
+
+        .gallery-card p {
+            color: #8b5a2e;
+            padding: 0 18px 20px;
+            line-height: 1.45;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+
+        <div class="logo">
+            10 EMERALD
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="classmates.html">Classmates</a></li>
+            <li><a href="attendance.html">Attendance Tracker</a></li>
+            <li><a href="index.html" class="active">Gallery</a></li>
+        </ul>
+
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero-section">
+
+        <h1>Our Gallery</h1>
+
+        <p>
+            Unfortunately, all good things come to an end. Come here anytime you want to feel nostalgic, as you may not be in 10 Emerald anymore but the experience you had in it will always stay with you.
+        </p>
+
+    </header>
+
+    <!-- GALLERY -->
+    <section class="gallery-container">
+
+        <!-- Pic 1 -->
+        <div class="gallery-card">
+
+            <img src="Minimart.jpg" alt="Photo 1">
+
+            <h2>Minimart</h2>
+
+            <p>
+                One of the first major events held, we were assinged to a basketball game and it was extremely chaotic. We couldn't do it without Lebron James' help.
+            </p>
+
+        </div>
+
+        <!-- Pic 2 -->
+        <div class="gallery-card">
+
+            <img src="ChristmasParty.JPG" alt="Photo 2">
+
+            <h2>Christmas Party</h2>
+
+            <p>
+                We had a ton of games, it was extremely chatoic and the food was absolutely amazing. (ps:I'm sorry for the cap David)
+            </p>
+
+        </div>
+
+        <!-- Pic 3 -->
+        <div class="gallery-card">
+
+            <img src="JCO.jpg" alt="Photo 3">
+
+            <h2>JCO</h2>
+
+            <p>
+              This was the event most of us looked forward to and it definitely lived up to the hype. The activities we had to do were all so fun and it wasn't as strict as we expected.
+            </p>
+
+        </div>
+
+        <!-- Pic 4 -->
+        <div class="gallery-card">
+
+            <img src="PeaceCongress.jpg" alt="Photo 4">
+
+            <h2>Peace Congress</h2>
+
+            <p>
+                This activity had been building up for the whole year, everybody's hardwork had been all worth it as all of the groups got outstanding.
+            </p>
+
+        </div>
+
+        <!-- CARD 5 -->
+        <div class="gallery-card">
+
+            <img src="Intrams.jpg" alt="Photo 5">
+
+            <h2>Intramurals</h2>
+
+            <p>
+                This was the best final intramurals we could have gotten, it was the first time our section had won the whole intrams and it also had one of the best basketball games our school had ever seen.
+            </p>
+
+        </div>
+
+        <!-- CARD 6 -->
+        <div class="gallery-card">
+
+            <img src="LastDay.jpg" alt="Photo 6">
+
+            <h2>Last Day</h2>
+
+            <p>
+                It felt like a bittersweet moment knowing that summer would start but it'd be the last time we would all be together as one class.
+            </p>
+
+        </div>
+
+    </section>
+
+</body>
+</html>
